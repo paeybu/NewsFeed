@@ -12,17 +12,19 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Cats like burgers"
+        android:text="Cats like burgers fsdf sdf dsaf sd fdsa fasd f sd fs fsadf asdf"
+        android:layout_toLeftOf="@id/news_section"
         />
 
     <TextView
         android:id="@+id/news_section"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
         android:textAppearance="?android:textAppearanceMedium"
         android:text="World News"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
         />
 
 </RelativeLayout>

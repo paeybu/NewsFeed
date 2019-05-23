@@ -11,6 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
     private NewsAdapter mAdapter;
+    private static final String NEWS_URL = "https://content.guardianapis.com/search?q=thailand&api-key=test";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         mListView = findViewById(R.id.list);
 
-        List<News> newsList = new ArrayList<News>();
-        newsList.add(new News("I am a cat", "World News"));
-        newsList.add(new News("I am a dog", "Crime"));
+        List<News> newsList = QueryUtils.extractFromJson(QueryUtils.SAMPLE_JSON);
 
         mAdapter = new NewsAdapter(this, R.layout.list_item, newsList);
         mListView.setAdapter(mAdapter);
