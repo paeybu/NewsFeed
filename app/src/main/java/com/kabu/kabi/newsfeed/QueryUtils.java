@@ -133,7 +133,8 @@ public final class QueryUtils {
                     String title = result.getString("webTitle");
                     String section = result.getString("sectionName");
                     String webUrl = result.getString("webUrl");
-                    newsList.add(new News(title, section, webUrl));
+                    String date = result.getString("webPublicationDate");
+                    newsList.add(new News(title, section, webUrl, date));
                 }
                 return newsList;
             }

@@ -23,12 +23,15 @@ public class NewsAdapter extends ArrayAdapter<News> {
 
         String title = currentNews.getTitle();
         String section = currentNews.getSection();
+        String date = currentNews.getFormattedDate();
 
         TextView titleTv = convertView.findViewById(R.id.news_title);
         TextView sectionTv = convertView.findViewById(R.id.news_section);
+        TextView dateTv = convertView.findViewById(R.id.news_date);
 
         titleTv.setText(title);
         sectionTv.setText(section);
+        dateTv.setText(date);
 
         return convertView;
     }

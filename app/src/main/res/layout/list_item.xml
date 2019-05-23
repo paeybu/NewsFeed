@@ -23,5 +23,13 @@
         android:text="Cats like burgers fsdf sdf dsaf sd fdsa fasd f sd fs fsadf asdf"
         />
 
+    <TextView
+        android:id="@+id/news_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:text="22 May 2012"
+        android:layout_marginRight="16dp"
+        android:layout_gravity="end"/>
 
 </LinearLayout>
