@@ -10,6 +10,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private ListView mListView;
+    private NewsAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +22,9 @@ public class MainActivity extends AppCompatActivity {
         List<News> newsList = new ArrayList<News>();
         newsList.add(new News("I am a cat", "World News"));
         newsList.add(new News("I am a dog", "Crime"));
+
+        mAdapter = new NewsAdapter(this, R.layout.list_item, newsList);
+        mListView.setAdapter(mAdapter);
+
     }
 }
