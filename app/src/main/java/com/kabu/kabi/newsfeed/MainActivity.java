@@ -3,7 +3,9 @@ package com.kabu.kabi.newsfeed;
 import android.app.LoaderManager;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,16 +36,24 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-        String url = buildUrl();
+
+        //Get the sharedPref
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        String keywordKey = getString(R.string.pref_keyword_key);
+        String keywordDefault = getString(R.string.pref_keyword_default);
+
+        String keyword = sharedPreferences.getString(keywordKey, keywordDefault);
+
+        String url = buildUrl(keyword);
         return new NewsLoader(this, url);
     }
 
-    private String buildUrl() {
+    private String buildUrl(String keyword) {
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("https")
                 .authority(AUTHORITY)
                 .appendPath("search")
-                .appendQueryParameter("q", "thailand")
+                .appendQueryParameter("q", keyword)
                 .appendQueryParameter("api-key", "test");
 
         return builder.build().toString();
