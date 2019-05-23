@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="8dp"
     >
-
-    <TextView
-        android:id="@+id/news_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:text="Cats like burgers fsdf sdf dsaf sd fdsa fasd f sd fs fsadf asdf"
-        android:layout_toLeftOf="@id/news_section"
-        />
 
     <TextView
         android:id="@+id/news_section"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textStyle="bold"
         android:text="World News"
-        android:layout_marginLeft="16dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
         />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/news_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Cats like burgers fsdf sdf dsaf sd fdsa fasd f sd fs fsadf asdf"
+        />
+
+
+</LinearLayout>
