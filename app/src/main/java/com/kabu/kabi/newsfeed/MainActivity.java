@@ -2,6 +2,7 @@ package com.kabu.kabi.newsfeed;
 
 import android.app.LoaderManager;
 import android.content.Loader;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private ListView mListView;
     private NewsAdapter mAdapter;
-    private static final String NEWS_URL = "https://content.guardianapis.com/search?q=thailand&api-key=test";
+    private static final String AUTHORITY = "content.guardianapis.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +31,19 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public Loader<List<News>> onCreateLoader(int id, Bundle args) {
-        return new NewsLoader(this, NEWS_URL);
+        String url = buildUrl();
+        return new NewsLoader(this, url);
+    }
+
+    private String buildUrl() {
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("https")
+                .authority(AUTHORITY)
+                .appendPath("search")
+                .appendQueryParameter("q", "thailand")
+                .appendQueryParameter("api-key", "test");
+
+        return builder.build().toString();
     }
 
     @Override
