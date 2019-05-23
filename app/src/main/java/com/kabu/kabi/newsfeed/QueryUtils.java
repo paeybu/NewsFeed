@@ -114,14 +114,14 @@ public final class QueryUtils {
         return output.toString();
     }
 
-    public static List<News> extractFromJson(String bookJSON) {
+    public static List<News> extractFromJson(String jsonString) {
         // If the JSON string is empty or null, then return early.
-        if (TextUtils.isEmpty(bookJSON)) {
+        if (TextUtils.isEmpty(jsonString)) {
             return null;
         }
 
         try {
-            JSONObject baseJsonResponse = new JSONObject(bookJSON);
+            JSONObject baseJsonResponse = new JSONObject(jsonString);
             JSONObject response = baseJsonResponse.getJSONObject("response");
             JSONArray itemsArray = response.getJSONArray("results");
 
